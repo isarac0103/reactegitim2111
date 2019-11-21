@@ -7,10 +7,26 @@ class ListItems extends React.Component {
         super()
 
         this.onFormSubmit = this.onFormSubmit.bind(this)
+        this.onRemovePressed = this.onRemovePressed.bind(this)
 
         this.state = {
             items: []
         }
+    }
+
+    onRemovePressed (index) {
+
+        this.setState((prevState) => {
+
+            const items = prevState.items
+            const deletedItem = items.splice(index, 1)
+            
+            return {
+                items
+            }
+        })
+
+        console.log(`will remove item at index ${index}`)
     }
 
     onFormSubmit (e) {
@@ -46,7 +62,9 @@ class ListItems extends React.Component {
                             return (
                                 <li key={index}>
                                     {item}
-                                    <button>Sil</button>
+                                    <button 
+                                        onClick={() => {this.onRemovePressed(index)}}
+                                    >Sil</button>
                                 </li>
                             )
                         })
