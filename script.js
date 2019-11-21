@@ -1,6 +1,16 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -27,7 +37,7 @@ var ListItems = function (_React$Component) {
     }
 
     _createClass(ListItems, [{
-        key: "onFormSubmit",
+        key: 'onFormSubmit',
         value: function onFormSubmit(e) {
 
             e.preventDefault();
@@ -46,41 +56,46 @@ var ListItems = function (_React$Component) {
             }
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var items = this.state.items;
 
 
-            return React.createElement(
-                "div",
+            return _react2.default.createElement(
+                'div',
                 null,
-                items.length > 0 && React.createElement(
-                    "div",
+                items.length > 0 && _react2.default.createElement(
+                    'div',
                     null,
-                    React.createElement(
-                        "h2",
+                    _react2.default.createElement(
+                        'h2',
                         null,
-                        "Se\xE7enekler"
+                        'Se\xE7enekler'
                     ),
                     items.map(function (item, index) {
-                        return React.createElement(
-                            "li",
+                        return _react2.default.createElement(
+                            'li',
                             { key: index },
-                            item
+                            item,
+                            _react2.default.createElement(
+                                'button',
+                                null,
+                                'Sil'
+                            )
                         );
                     })
                 ),
-                React.createElement(
-                    "div",
+                _react2.default.createElement(
+                    'div',
                     null,
-                    React.createElement(
-                        "form",
+                    _react2.default.createElement(
+                        'form',
                         { onSubmit: this.onFormSubmit },
-                        React.createElement("input", { type: "text", name: "newItem", placeholder: "Yeni Sat\u0131r Girin" }),
-                        React.createElement(
-                            "button",
+                        _react2.default.createElement('input', { type: 'text', name: 'newItem', placeholder: 'Yeni Sat\u0131r Girin' }),
+                        _react2.default.createElement(
+                            'button',
                             null,
-                            "Kaydet"
+                            'Kaydet'
                         )
                     )
                 )
@@ -89,7 +104,7 @@ var ListItems = function (_React$Component) {
     }]);
 
     return ListItems;
-}(React.Component);
+}(_react2.default.Component);
 
 var appRoot = document.getElementById('app');
-ReactDOM.render(React.createElement(ListItems, null), appRoot);
+_reactDom2.default.render(_react2.default.createElement(ListItems, null), appRoot);

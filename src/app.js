@@ -1,3 +1,6 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 class ListItems extends React.Component {
 
     constructor () {
@@ -41,7 +44,10 @@ class ListItems extends React.Component {
                     {
                         items.map((item,index) => {
                             return (
-                                <li key={index}>{item}</li>
+                                <li key={index}>
+                                    {item}
+                                    <button>Sil</button>
+                                </li>
                             )
                         })
                     }
